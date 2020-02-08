@@ -1,0 +1,58 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Strange Attractions</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Strange Attractions">
+    <style>
+        body,
+        html {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #111;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            font-family: Arial;
+            font-size: .9em;
+            overflow-x: hidden;
+        }
+        #face {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        #description {
+            position: absolute;
+            background-color: #888;
+            padding: 0px 8px;
+            bottom: 0px;
+            right: 0px;
+            line-height: 0.7em;
+        }
+        #description a {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <img id="face" src="#">
+    <div id="description">
+        <p>Imagined by <a href="https://github.com/NVlabs/stylegan2">StyleGAN2</a></p>
+        <p>Operated by <a href="https://rusnak.io/strange-attractions">Pavol Rusnak</a></p>
+    </div>
+    <script type="text/javascript">
+        function randomInt(max) { return Math.floor(Math.random() * max); }
+        var a = 0;
+        var b = randomInt(103);
+        var e = document.getElementById("face");
+        var aa = a.toString().padStart(4, "0");
+        var bb = b.toString().padStart(4, "0");
+        e.src = "face" + aa + "/" + bb + ".jpg";
+    </script>
+</body>
+
+</html>
