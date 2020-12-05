@@ -46,16 +46,21 @@
         }
         #box {
             position: absolute;
-            background-color: #444;
-            padding: 0px 8px;
+            background-color: #e6ff16;
+            color: #4f3979;
+            padding: 0px 2em 12px 2em;
             bottom: 0px;
             right: 0px;
-            text-align: right;
-            font-size: 0.8em;
-            max-width: 15%;
+            max-width: 25em;
         }
         #box a {
-            color: #888;
+            color: #4f3979;
+        }
+        #box #toggle {
+            position: absolute;
+            right: 0px;
+            top: 0px;
+            user-select: none;
         }
     </style>
 </head>
@@ -64,14 +69,18 @@
     <img id="face" src="#" onclick="nextImage();">
     <div id="box">
         <h1>Strange Attractions</h1>
+        <p style="line-height: 1.3em;">Strange Attractions are imagined creatures living in the latent space of the neural network StyleGAN. Instead of using it to generate photorealistic human faces, we challenge the algorithm and explore the area outside of its intended use. Strange Attractions rise from the neural network's interrupted face generation process and reveal the network's attempt to recall a human face. There comes an absolute bewilderedness from these neural encounters' erratic beauty, vivid colors, and stunning composition. The hallucinated meta faces are carrying the strangest emotions. From quirky looks to abstract ghosts, Strange Attractions present a wide range of visual possibilities behind the process of image synthesis, while stressing the importance of freedom in experimentation with open, generative ML/AI models.</p>
         <p>Project by <a href="https://hamosova.com" target="_blank">Lenka Hamosova</a> and <a href="https://rusnak.io" target="_blank">Pavol Rusnak</a></p>
         <p>Imagined by <a href="https://arxiv.org/abs/1812.04948" target="_blank">StyleGAN</a> (Karras et al.)</p>
-        <p><a href="https://instagram.com/lenkahamosova" target="_blank">Instagram AR Filter</a> / <a href="https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=afb37799a4b641619a927833f9d1c442&metadata=01" target="_blank">Snapchat AR Lens</a></p>
-        <p><a href="https://hamosova.company.site/Strange-Attractions-Pexeso-p264921148" target="_blank">Pexeso / Memo Game</a></p>
-        <p style="text-align: justify;">Strange Attractions are imagined creatures living in the latent space of the neural network StyleGAN. Instead of using it to generate photorealistic human faces, we challenge the algorithm and explore the area outside of its intended use. Strange Attractions rise from the neural network's interrupted face generation process and reveal the network's attempt to recall a human face. There comes an absolute bewilderedness from these neural encounters' erratic beauty, vivid colors, and stunning composition. The hallucinated meta faces are carrying the strangest emotions. From quirky looks to abstract ghosts, Strange Attractions present a wide range of visual possibilities behind the process of image synthesis, while stressing the importance of freedom in experimentation with open, generative ML/AI models.</p>
+        <p>Augmented Reality: <a href="https://www.instagram.com/ar/536837803669115/" target="_blank">Instagram Filter</a> / <a href="https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=afb37799a4b641619a927833f9d1c442&metadata=01" target="_blank">Snapchat Lens</a></p>
+        <p>Shop: <a href="#" target="_blank">Strange Attractions Prints</a> / <a href="https://hamosova.company.site/Strange-Attractions-Pexeso-p264921148" target="_blank">Pexeso Memo Game</a></p>
+        <p>Exhibited at <a href="https://www.dox.cz/program/datamaze-zacarovany-kruh">DOX Centre for Contemporary Art</a> and <a href="https://neurips2020creativity.github.io/">NeurIPS 2020 Workshop</a></p>
+        <p style="font-size: 0.9em;">2019-2020</p>
+        <div id="toggle" onclick="toggleBox();">&#x274C;</div>
     </div>
     <script type="text/javascript">
         var timer = null;
+        var box = true;
         function randomInt(max) { return Math.floor(Math.random() * max); }
         function nextImage() {
             if (timer) {
@@ -84,7 +93,13 @@
             var aa = a.toString().padStart(4, "0");
             var bb = b.toString().padStart(4, "0");
             e.src = "face" + aa + "/" + bb + ".jpg";
-            // timer = setTimeout(nextImage, 10000);
+            timer = setTimeout(nextImage, 10000);
+        }
+        function toggleBox() {
+            box = !box;
+            document.getElementById("box").style.right = box ? '0px' : '-28em';
+            document.getElementById("toggle").style.left = box ? null : '0px';
+            document.getElementById("toggle").style.right = box ? '0px' : null;
         }
         nextImage();
     </script>
