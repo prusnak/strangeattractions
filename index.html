@@ -4,13 +4,32 @@
     <title>Strange Attractions</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="description" content="Strange Attractions">
+    <link rel="icon" type="image/jpeg" href="favicon.jpg" />
+
+    <meta property="twitter:account_id" content="994910988" />
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@lenkahamosova">
+    <meta name="twitter:creator" content="@lenkahamosova">
+    <meta name="twitter:title" content="Strange Attractions">
+    <meta name="twitter:description" content="Strange Attractions are imagined creatures living in the latent space of the neural network StyleGAN. Instead of using it to generate photorealistic human faces, we challenge the algorithm and explore the area outside of its intended use. Strange Attractions rise from the neural network's interrupted face generation process and reveal the network's attempt to recall a human face. There comes an absolute bewilderedness from these neural encounters' erratic beauty, vivid colors, and stunning composition. The hallucinated meta faces are carrying the strangest emotions. From quirky looks to abstract ghosts, Strange Attractions present a wide range of visual possibilities behind the process of image synthesis, while stressing the importance of freedom in experimentation with open, generative ML/AI models.">
+    <meta name="twitter:image:src" content="share.jpg">
+    <meta name="twitter:image:width" content="400">
+    <meta name="twitter:image:height" content="400">
+    <meta name="twitter:domain" content="strangeattractions.xyz">
+  
+    <meta property="og:title" content="Strange Attractions"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="share.jpg"/>
+    <meta property="og:site_name" content="Strange Attractions"/>
+    <meta property="og:description" content="Strange Attractions are imagined creatures living in the latent space of the neural network StyleGAN. Instead of using it to generate photorealistic human faces, we challenge the algorithm and explore the area outside of its intended use. Strange Attractions rise from the neural network's interrupted face generation process and reveal the network's attempt to recall a human face. There comes an absolute bewilderedness from these neural encounters' erratic beauty, vivid colors, and stunning composition. The hallucinated meta faces are carrying the strangest emotions. From quirky looks to abstract ghosts, Strange Attractions present a wide range of visual possibilities behind the process of image synthesis, while stressing the importance of freedom in experimentation with open, generative ML/AI models."/>
+
     <style>
         body,
         html {
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #111;
+            background-color: #080808;
             margin: 0;
             padding: 0;
             width: 100%;
@@ -24,39 +43,49 @@
             max-width: 100%;
             max-height: 100%;
         }
-        #description {
+        #box {
             position: absolute;
-            background-color: #888;
+            background-color: #444;
             padding: 0px 8px;
             bottom: 0px;
             right: 0px;
-            line-height: 0.7em;
             text-align: right;
+            font-size: 0.8em;
+            max-width: 15%;
         }
-        #description a {
-            color: #fff;
+        #box a {
+            color: #888;
         }
     </style>
 </head>
 
 <body>
-    <img id="face" src="#" onclick="randomImage();">
-    <div id="description">
-        <p>Imagined by <a href="https://arxiv.org/abs/1812.04948">StyleGAN</a> (Karras et al.)</p>
-        <p>Website by <a href="https://rusnak.io/strange-attractions">Pavol Rusnak</a></p>
-        <p>Instagram filter by <a href="https://instagram.com/lenkahamosova">Lenka Hamosova</a></p>
+    <img id="face" src="#" onclick="nextImage();">
+    <div id="box">
+        <h1>Strange Attractions</h1>
+        <p>Project by <a href="https://hamosova.com" target="_blank">Lenka Hamosova</a> and <a href="https://rusnak.io" target="_blank">Pavol Rusnak</a></p>
+        <p>Imagined by <a href="https://arxiv.org/abs/1812.04948" target="_blank">StyleGAN</a> (Karras et al.)</p>
+        <p><a href="https://instagram.com/lenkahamosova" target="_blank">Instagram AR Filter</a> / <a href="https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=afb37799a4b641619a927833f9d1c442&metadata=01" target="_blank">Snapchat AR Lens</a></p>
+        <p><a href="https://hamosova.company.site/Strange-Attractions-Pexeso-p264921148" target="_blank">Pexeso / Memo Game</a></p>
+        <p style="text-align: justify;">Strange Attractions are imagined creatures living in the latent space of the neural network StyleGAN. Instead of using it to generate photorealistic human faces, we challenge the algorithm and explore the area outside of its intended use. Strange Attractions rise from the neural network's interrupted face generation process and reveal the network's attempt to recall a human face. There comes an absolute bewilderedness from these neural encounters' erratic beauty, vivid colors, and stunning composition. The hallucinated meta faces are carrying the strangest emotions. From quirky looks to abstract ghosts, Strange Attractions present a wide range of visual possibilities behind the process of image synthesis, while stressing the importance of freedom in experimentation with open, generative ML/AI models.</p>
     </div>
     <script type="text/javascript">
+        var timer = null;
         function randomInt(max) { return Math.floor(Math.random() * max); }
-        function randomImage() {
+        function nextImage() {
+            if (timer) {
+                clearTimeout(timer);
+                timer = null;
+            }
             var a = randomInt(3);
             var b = randomInt(1000);
             var e = document.getElementById("face");
             var aa = a.toString().padStart(4, "0");
             var bb = b.toString().padStart(4, "0");
             e.src = "face" + aa + "/" + bb + ".jpg";
+            // timer = setTimeout(nextImage, 10000);
         }
-        randomImage();
+        nextImage();
     </script>
 </body>
 
