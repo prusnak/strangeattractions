@@ -76,11 +76,10 @@
         <p>Shop: <a href="#" target="_blank">Strange Attractions Prints</a> / <a href="https://hamosova.company.site/Strange-Attractions-Pexeso-p264921148" target="_blank">Pexeso Memo Game</a></p>
         <p>Exhibited at <a href="https://www.dox.cz/program/datamaze-zacarovany-kruh">DOX Centre for Contemporary Art</a> and <a href="https://neurips2020creativity.github.io/">NeurIPS 2020 Workshop</a></p>
         <p style="font-size: 0.9em;">2019-2020</p>
-        <div id="toggle" onclick="toggleBox();">&#x274C;</div>
+        <div id="toggle" onclick="closeBox();">&#x274C;</div>
     </div>
     <script type="text/javascript">
         var timer = null;
-        var box = true;
         function randomInt(max) { return Math.floor(Math.random() * max); }
         function nextImage() {
             if (timer) {
@@ -95,11 +94,8 @@
             e.src = "face" + aa + "/" + bb + ".jpg";
             timer = setTimeout(nextImage, 10000);
         }
-        function toggleBox() {
-            box = !box;
-            document.getElementById("box").style.right = box ? '0px' : '-28em';
-            document.getElementById("toggle").style.left = box ? null : '0px';
-            document.getElementById("toggle").style.right = box ? '0px' : null;
+        function closeBox() {
+            document.getElementById("box").style.display = "none";
         }
         nextImage();
     </script>
